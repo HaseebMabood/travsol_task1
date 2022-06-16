@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SuperAdmin\RoleController;
+use App\Http\Controllers\SuperAdmin\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,15 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('users', AdminController::class);
+
+// Role controller
+Route::resource('/roles', RoleController::class);
+
+// Permission controller
+Route::resource('/permissions', PermissionController::class);
+
+
+
 
 Route::get('/my-profile', [UserController::class, 'my_profile']);
 

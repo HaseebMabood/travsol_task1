@@ -48,5 +48,37 @@
         </a>
       </li>
 
+
+      <li class="nav-item" {{Request::is('sub_admin')?'active':''}}>
+        <a class="nav-link" href="{{url('sub_admin')}}">
+          <i class="fa fa-user"></i> <span>Sub-Admin</span>   
+        </a>
+      </li>
+
+
+      <li class="nav-item" {{Request::is('users')?'active':''}}>
+        <a class="nav-link" href="{{url('users')}}">
+          <i class="fa fa-user"></i> <span>Agencies</span>   
+        </a>
+      </li>
+
+      <li class="nav-item" {{Request::is('users')?'active':''}}>
+        <a class="nav-link" href="{{url('users')}}">
+          <i class="fa fa-user"></i> <span>Manager</span>   
+        </a>
+      </li>
+
+      <li class="nav-item" {{Request::is('roles')?'active':''}}>
+        <a class="nav-link" href="{{url('roles')}}">
+          <i class="fa fa-user"></i> <span>Roles</span>   
+        </a>
+      </li>
+
+      <li class="nav-item" {{Request::is('permissions')?'active':''}}>
+        <a class="nav-link" href="{{url('permissions')}}">
+          <i class="fa fa-user"></i> <span>Permissions</span>   
+        </a>
+      </li>
+
     </ul>
   </section>
