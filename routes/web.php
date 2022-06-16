@@ -19,18 +19,18 @@ use App\Http\Controllers\SuperAdmin\PermissionController;
 */
 
 Route::get('/', function () {
-  
+
     return view('auth.login');
 });
 
 
 // Route::get('/myProfile', function () {
-  
+
 //     return view('admin.profile');
 // });
 
 // Route::get('/table', function () {
-  
+
 //     return view('admin.users_table');
 // });
 Auth::routes();
@@ -42,12 +42,28 @@ Route::resource('users', AdminController::class);
 // Role controller
 Route::resource('/roles', RoleController::class);
 
+
 // Permission controller
 Route::resource('/permissions', PermissionController::class);
 
+//Assign permission to role
 
+Route::post('/roles/{id}/permission', [RoleController::class, 'givePermission'])->name('roles.permission');
 
+//revoke/delete permission that assigned to role
+Route::delete('/roles/{id}/permission/{id2}', [RoleController::class, 'revokePermission'])->name('permission.revoke');
 
 Route::get('/my-profile', [UserController::class, 'my_profile']);
 
 Route::put('/profile-update/{id}', [UserController::class, 'update_profile']);
+
+
+
+// Assign role to user
+Route::get('/assign_role_to_user/{id}', [RoleController::class, 'assign_role_to_user']);
+
+Route::post('/role_asssigned_to_user/{id}', [RoleController::class, 'role_asssigned_to_user']);
+
+
+//revoke/delete role that assigned to role
+Route::delete('/user/{id}/role/{id2}', [RoleController::class, 'revokeRole'])->name('role.revoke');

@@ -134,6 +134,14 @@
 @endif
 
 {{-- end sweet --}}
+
+
+{{-- tooltip : When hover on a link a title is shown --}}
+<script>
+        $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
      @include('layout.scripts')  {{-- used here but nothing in that file because thats not working  --}}
 
 

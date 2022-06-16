@@ -30,6 +30,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Address</th>
+                <th>Assign Role</th>
 
                 @can('action')
                     <th>Action</th>
@@ -46,6 +47,9 @@
                     <td>{{$user->email}}</td>
                     <td>{{$user->phone}}</td>
                     <td>{{$user->address}}</td>
+                    <td>
+                        <a href="{{url('assign_role_to_user/'.$user->id)}}" type="button" class="btn btn-info">Role</a>
+                    </td>
 
 
 
