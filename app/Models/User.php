@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\AgentNew;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -44,7 +45,11 @@ class User extends Authenticatable
     ];
 
 
-    // public function role(){
-    //     return $this->belongsTo(Role::class);
+    // public function agencies(){
+    //     return $this->belongsTo(Agency::class);
     // }
+
+    public function agents_table(){
+        return $this->hasMany(AgentNew::class);
+    }
 }

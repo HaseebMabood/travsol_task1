@@ -4,8 +4,8 @@
 @section('heading')
 
 <h1>
-    Users List
-    <small>it all starts here</small>
+    Agencies List
+    
   </h1>
 
 @endsection
@@ -15,11 +15,11 @@
     <div class="row ">
       <div class="col-xs-12">
         <div class="box ">
-            @can('create user')
+           
                 <div class="box-header">
-                    <a href="{{route('users.create')}}" class="btn btn-info">Add User +</a>
+                    <a href="{{route('agencies.create')}}" class="btn btn-info">Add Agency +</a>
                 </div>
-           @endcan
+          
           <!-- /.box-header -->
           <div class="box-body table-responsive">
             <table id="example2" class="table table-bordered table-hover">
@@ -28,55 +28,46 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Phone</th>
-                <th>Address</th>
-                @can('assign role')
-                <th>Assign Role</th>
-                @endcan
+                <th>License No</th>
+                <th>Location</th>
+                <th>Contact_no </th>
 
-                @can('action')
-                    <th>Action</th>
-                @endcan
+             
+                <th>Action</th>
+           
 
               </tr>
               </thead>
               <tbody>
 
-                @foreach ($users as $user)
+                @foreach ($agencies as $agency)
                 <tr>
-                    <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>{{$user->phone}}</td>
-                    <td>{{$user->address}}</td>
+                    <td>{{$agency->id}}</td>
+                    <td>{{$agency->name}}</td>
+                    <td>{{$agency->email}}</td>
+                    <td>{{$agency->license_no}}</td>
+                    <td>{{$agency->Location}}</td>
+                    <td>{{$agency->Contact_no}}</td>
+              
 
-                    @can('assign role')
-                    <td>
-                        <a href="{{url('assign_role_to_user/'.$user->id)}}" type="button" class="btn btn-info">Role</a>
-                    </td>
-                    @endcan
-
-
-
-
-                    @can('action')
+                   
 
                         <td class="d-flex">
 
-                                <a href="{{route('users.edit',$user)}}">
+                                <a href="{{route('agencies.edit',$agency)}}">
                                 <i class=" btn btn-success btn-anim  btn-s fa fa-edit" style="height: 34px"></i></a>
 
 
-                                @if ($user->usertype=='0')
-                                    <form action="{{ route('users.destroy',$user->id) }}" method="post">
+                               
+                                    <form action="{{ route('agencies.destroy',$agency->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                     <button type="submit" class="btn btn-danger " style="margin-left: 10px"><i class="fa fa-trash btn-anim btn-s" style="height: 10px;"></i></button>
                                     </form>
-                                @endif
+                            
 
                         </td>
-                    @endcan
+               
                   </tr>
 
                 @endforeach

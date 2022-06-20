@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AgencyController;
+use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\AgentNewController;
 use App\Http\Controllers\SuperAdmin\RoleController;
 use App\Http\Controllers\SuperAdmin\PermissionController;
 
@@ -67,3 +70,15 @@ Route::post('/role_asssigned_to_user/{id}', [RoleController::class, 'role_asssig
 
 //revoke/delete role that assigned to role
 Route::delete('/user/{id}/role/{id2}', [RoleController::class, 'revokeRole'])->name('role.revoke');
+
+
+// Agencies resource
+Route::resource('/agencies', AgencyController::class);
+
+// Specific agency accessable by a manager
+// Agencies resource
+// Route::resource('/agency', ManagerController::class);
+
+
+// Agent resource ....Agent Crud created by manager
+Route::resource('/agents_new', AgentNewController::class);

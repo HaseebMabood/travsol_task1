@@ -18,6 +18,7 @@ class RoleController extends Controller
     public function index(){
 
         $roles = Role::whereNotIn('name', ['admin'])->get();
+        // $roles = Role::all();
         return view('admin.role.index',compact('roles'));
     }
 
@@ -154,6 +155,7 @@ class RoleController extends Controller
 
         //  dd($role);//okk
         if($user->assignRole($role)){
+            
             $user->removeRole($role);
             return back()->with('success','Role revoked');
         }
