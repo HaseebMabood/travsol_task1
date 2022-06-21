@@ -102,6 +102,7 @@
                       <div class="form-group ">
                           <label for="permission">Permission</label><br>
                            <select name="permission" id="permission" class="form-control">
+                            <option value="" disabled selected>--Select a permission--</option>
                                @foreach ($permissions as $permission)
                                <option value="{{$permission->name}}">{{$permission->name}}</option>
                                @endforeach

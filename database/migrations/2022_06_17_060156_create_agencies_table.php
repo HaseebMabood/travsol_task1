@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('license_no');
             $table->string('Location');
             $table->string('Contact_no');
+            $table->string('manager_id')->nullable();
             // $table->foreignId('manager_id')->references('id')->on('users');
             $table->timestamps();
         });

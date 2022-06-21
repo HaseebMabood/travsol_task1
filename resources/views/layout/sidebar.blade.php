@@ -77,14 +77,38 @@
         </a>
       </li> --}}
 
-      @hasanyrole('admin|manager1|manager2')
+
+      {{-- These are the agents relevant to a specific manager who created them --}}
+      @role('manager')
       <li class="nav-item" >
         <a class="nav-link {{Request::is('agents_new')?'active':''}}" href="{{route("agents_new.index")}}">
           <i class="fa fa-user"></i> <span>Agents</span>
         </a>
       </li>
-      @endhasanyrole
+      @endrole
 
+
+      {{-- These are all the Agents created by individual managers--}}
+      @role('admin')
+      <li class="nav-item" >
+        <a class="nav-link {{Request::is('agents_all')?'active':''}}" href="{{url("/agents_all")}}">
+          <i class="fa fa-user"></i> <span>Agents</span>
+        </a>
+      </li>
+      @endrole
+
+
+
+      {{-- this agency is related to their corresponding manager --}}
+      @role('manager')
+
+      <li class="nav-item" >
+        <a class="nav-link {{Request::is('agency')?'active':''}}" href="{{route("agency.index")}}">
+          <i class="fa fa-user"></i> <span>Agency</span>
+        </a>
+      </li>
+
+      @endrole
 {{--
       <li class="treeview">
         <a href="#">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AgentNew;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -23,7 +24,7 @@ class AdminController extends Controller
         $this->middleware('permission:create user', ['only' => ['create','store']]);
         $this->middleware('permission:action', ['only' => ['edit','update']]);
         $this->middleware('permission:action', ['only' => ['destroy']]);
-        // $this->middleware('permission:action', ['only' => ['destroy']]);
+        
     }
 
 
@@ -146,5 +147,12 @@ class AdminController extends Controller
     {
         $user->delete();
         return redirect('/users');
+    }
+
+    public function agents_all()
+    {
+        $agents_all = AgentNew::all();
+        // dd($agents_all);
+        return view('agents_all_showTo_admin.index',compact('agents_all'));
     }
 }

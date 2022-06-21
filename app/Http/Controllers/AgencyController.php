@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Agency;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class AgencyController extends Controller
      */
     public function create()
     {
-        return view('agency.create');
+        $managers = User::role('manager')->get();
+        return view('agency.create',compact('managers'));
     }
 
     /**
@@ -43,6 +45,8 @@ class AgencyController extends Controller
         $data->license_no = $request->license;
         $data->Location = $request->location;
         $data->Contact_no = $request->contact;
+        $data->manager_id = $request->manager;
+        // dd($data);
         $data->save();
 
         return redirect('/agencies')->with('success','Agency added successfully!');
@@ -67,7 +71,18 @@ class AgencyController extends Controller
      */
     public function edit(Agency $agency)
     {
-        return view('agency.update',compact('agency'));
+
+        // $selected_manager = Agency::where('manager_id',$agency->manager_id)->first();
+        // // dd($selected_manager); //okk
+        // $manag_id = $selected_manager->manager_id;
+        // // dd($manag_id); //okk
+        // $manager = User::where('id',$manag_id)->first();
+        // // dd($manager);//okk
+        // $manag_name = $manager->name;
+        // dd($manag_name); //okk
+        $managers = User::role('manager')->get();
+        // return view('agency.update',compact('agency','managers','manag_name')); //no need 
+        return view('agency.update',compact('agency','managers'));
     }
 
     /**
@@ -85,6 +100,7 @@ class AgencyController extends Controller
         $agency->license_no = $request->license;
         $agency->Location = $request->location;
         $agency->Contact_no = $request->contact;
+        $agency->manager_id = $request->manager;
         $agency->save();
 
         return redirect('/agencies')->with('success','Agency updated successfully!');

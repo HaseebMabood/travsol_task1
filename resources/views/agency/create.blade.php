@@ -49,6 +49,18 @@
           </div>
 
 
+          <div class="form-group ">
+            <label for="manager">Choose a manager</label><br>
+             <select name="manager" id="manager" class="form-control">
+                <option value="" disabled selected>--Select a manager--</option>
+                 @foreach ($managers as $manager)
+                 <option value="{{$manager->id}}">{{$manager->name}}</option>
+                 @endforeach
+                
+             </select>
+          </div>
+
+
       
        
       </div>

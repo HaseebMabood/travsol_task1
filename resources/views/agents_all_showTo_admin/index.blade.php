@@ -4,7 +4,7 @@
 @section('heading')
 
 <h1>
-    Agents List
+    All Agency Agents List
 
   </h1>
 
@@ -16,9 +16,9 @@
       <div class="col-xs-12">
         <div class="box ">
 
-                <div class="box-header">
+                {{-- <div class="box-header">
                     <a href="{{route('agents_new.create')}}" class="btn btn-info">Add Agent +</a>
-                </div>
+                </div> --}}
 
           <!-- /.box-header -->
           <div class="box-body table-responsive">
@@ -32,16 +32,15 @@
                 <th>Phone No </th>
                 <th>Image</th>
 
-                <th>Action</th>
+                {{-- <th>Action</th> --}}
 
 
               </tr>
               </thead>
               <tbody>
 
-                @foreach ($agents as $agent)
-                @auth
-                @if (auth()->user()->id === $agent->manager_id)
+                @foreach ($agents_all as $agent)
+               
                 <tr>
                     <td>{{$agent->id}}</td>
                     <td>{{$agent->name}}</td>
@@ -55,7 +54,7 @@
 
 
 
-                        <td class="d-flex">
+                        {{-- <td class="d-flex">
 
                                 <a href="{{route('agents_new.edit',$agent)}}">
                                 <i class=" btn btn-success btn-anim  btn-s fa fa-edit" style="height: 34px"></i></a>
@@ -69,11 +68,10 @@
                                     </form>
 
 
-                        </td>
+                        </td> --}}
 
                   </tr>
-                  @endif
-                  @endauth
+             
                 @endforeach
 
               </tbody>

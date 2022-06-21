@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agency;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ManagerController extends Controller
 {
@@ -13,7 +15,12 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        //
+        // dd(Auth::user()->id); //okk
+        // $agency = Agency::all();
+        $manager_login = Auth::user()->id;
+        $agency = Agency::where('manager_id',$manager_login)->first();
+        // dd($agency);
+        return view('manager_agency.index',compact('agency'));
     }
 
     /**

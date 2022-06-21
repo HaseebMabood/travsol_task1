@@ -4,7 +4,7 @@
 @section('heading')
 
 <h1>
-    Agencies List
+    Agency
     
   </h1>
 
@@ -16,9 +16,9 @@
       <div class="col-xs-12">
         <div class="box ">
            
-                <div class="box-header">
+                {{-- <div class="box-header">
                     <a href="{{route('agencies.create')}}" class="btn btn-info">Add Agency +</a>
-                </div>
+                </div> --}}
           
           <!-- /.box-header -->
           <div class="box-body table-responsive">
@@ -31,16 +31,16 @@
                 <th>License No</th>
                 <th>Location</th>
                 <th>Contact_no </th>
-                <th>Manager_id </th>
+                {{-- <th>Manager_id </th> --}}
              
-                <th>Action</th>
+                {{-- <th>Action</th> --}}
            
 
               </tr>
               </thead>
               <tbody>
 
-                @foreach ($agencies as $agency)
+                {{-- @foreach ($agency as $agency) --}}
                 <tr>
                     <td>{{$agency->id}}</td>
                     <td>{{$agency->name}}</td>
@@ -48,11 +48,11 @@
                     <td>{{$agency->license_no}}</td>
                     <td>{{$agency->Location}}</td>
                     <td>{{$agency->Contact_no}}</td>
-                    <td>{{$agency->manager_id}}</td>
+                    {{-- <td>{{$agency->manager_id}}</td> --}}
 
                    
 
-                        <td class="d-flex">
+                        {{-- <td class="d-flex">
 
                                 <a href="{{route('agencies.edit',$agency)}}">
                                 <i class=" btn btn-success btn-anim  btn-s fa fa-edit" style="height: 34px"></i></a>
@@ -66,11 +66,11 @@
                                     </form>
                             
 
-                        </td>
+                        </td> --}}
                
                   </tr>
 
-                @endforeach
+                {{-- @endforeach --}}
 
               </tbody>
 
