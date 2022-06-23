@@ -44,7 +44,7 @@
 
       <li class="nav-item" >
         <a class="nav-link {{Request::is('users')?'active':''}} " href="{{url('users')}}">
-          <i class="fa fa-user"></i> <span>Users</span>
+          <i class="fa fa-users"></i> <span>Users</span>
         </a>
       </li>
 
@@ -57,7 +57,7 @@
 
       <li class="nav-item" >
         <a class="nav-link {{Request::is('permissions')?'active':''}}" href="{{url('permissions')}}">
-          <i class="fa fa-user"></i> <span>Permissions</span>
+          <i class="fa fa-lock"></i> <span>Permissions</span>
         </a>
       </li>
 
@@ -65,7 +65,7 @@
 
       <li class="nav-item" >
         <a class="nav-link {{Request::is('agencies')?'active':''}}" href="{{route("agencies.index")}}">
-          <i class="fa fa-user"></i> <span>Agencies</span>
+          <i class="fa fa-building"></i> <span>Agencies</span>
         </a>
       </li>
 
@@ -82,7 +82,7 @@
       @role('manager')
       <li class="nav-item" >
         <a class="nav-link {{Request::is('agents_new')?'active':''}}" href="{{route("agents_new.index")}}">
-          <i class="fa fa-user"></i> <span>Agents</span>
+          <i class="fa fa-user-secret"></i> <span>Agents</span>
         </a>
       </li>
       @endrole
@@ -92,7 +92,7 @@
       @role('admin')
       <li class="nav-item" >
         <a class="nav-link {{Request::is('agents_all')?'active':''}}" href="{{url("/agents_all")}}">
-          <i class="fa fa-user"></i> <span>Agents</span>
+          <i class="fa fa-user-secret"></i> <span>Agents</span>
         </a>
       </li>
       @endrole
@@ -104,7 +104,7 @@
 
       <li class="nav-item" >
         <a class="nav-link {{Request::is('agency')?'active':''}}" href="{{route("agency.index")}}">
-          <i class="fa fa-user"></i> <span>Agency</span>
+          <i class="fa fa-building"></i> <span>Agency</span>
         </a>
       </li>
 

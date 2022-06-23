@@ -17,7 +17,7 @@
         <div class="box ">
             @can('create user')
                 <div class="box-header">
-                    <a href="{{route('users.create')}}" class="btn btn-info">Add User +</a>
+                    <a href="{{route('users.create')}}" class="btn btn-info">Add User <i class="fa fa-user-plus"></i></a>
                 </div>
            @endcan
           <!-- /.box-header -->
@@ -30,6 +30,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Address</th>
+                <th>Pictures</th>
                 @can('assign role')
                 <th>Assign Role</th>
                 @endcan
@@ -49,7 +50,9 @@
                     <td>{{$user->email}}</td>
                     <td>{{$user->phone}}</td>
                     <td>{{$user->address}}</td>
-
+                    <td>
+                        <img src="{{asset('public/upload_images/'.$user->image)}}" style="border-radius: 60px" height="100px" width="100px" class="round" alt="">
+                    </td>
                     @can('assign role')
                     <td>
                         <a href="{{url('assign_role_to_user/'.$user->id)}}" type="button" class="btn btn-info">Role</a>
